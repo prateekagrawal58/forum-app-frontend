@@ -1,0 +1,20 @@
+<div>
+    <div class="flex flex-col">
+        <span class= "text-3xl text-center"> {{data.topic.title}}</span>
+        <span class= "text-xl text-center"> {{data.topic.content}}</span>
+    </div>
+    <div *ngIf = "comments">
+        <div class="text-purple-800">Comments:</div>
+        <div class = "m-5" *ngFor = "let comment of comments">
+            <span>{{comment.description}}</span>
+        </div>
+    </div>
+    <div class='mt-10'>
+        <div>
+            <textarea [(ngModel)]="comment" name="content" cols="30" rows="5" class="border p-1"></textarea>
+            <br>
+            <span class="text-red-500" *ngIf="error">{{error}}</span><br/>
+            <button (click)="submit()" class="bg-blue-600 shadow-lg">Add Comment</button>
+        </div>
+    </div>
+</div>
